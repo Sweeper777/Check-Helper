@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Check Helper</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_支票轉換">支票轉換</string>
+</resources>
