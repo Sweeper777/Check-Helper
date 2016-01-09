@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Check Helper</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_支票轉換">支票轉換</string>
+    <string name="title_activity_支票轉換">Check Helper</string>
+    <string name="text_field_hint">Enter Amount</string>
+    <string name="chinese_button_text">Chinese</string>
+    <string name="convert_button_text">Convert it!</string>
+    <string name="english_button_text">English</string>
 </resources>

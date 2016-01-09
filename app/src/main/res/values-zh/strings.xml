@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">支票小幫手</string>
+    <string name="text_field_hint">輸入幣值</string>
+    <string name="chinese_button_text">中文版</string>
+    <string name="title_activity_支票轉換">支票小幫手</string>
+    <string name="convert_button_text">轉換！</string>
+    <string name="english_button_text">英文版</string>
+</resources>

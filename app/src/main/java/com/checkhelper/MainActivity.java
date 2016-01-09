@@ -1,7 +1,6 @@
 package com.checkhelper;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -14,8 +13,7 @@ import java.math.BigInteger;
 public class MainActivity extends Activity {
 	public EditText textField;
 	public Button convertBtn;
-	public TextView text;
-	public Button chineseBtn;
+	public TextView text, textChinese;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,20 +22,14 @@ public class MainActivity extends Activity {
 
 		textField = (EditText)findViewById (R.id.text_field);
 		convertBtn = (Button)findViewById (R.id.button);
-		chineseBtn = (Button)findViewById (R.id.button_chinese);
 		text = (TextView)findViewById (R.id.textView);
+		textChinese = (TextView)findViewById (R.id.textView_chinese);
 
 		convertBtn.setOnClickListener (new View.OnClickListener () {
 			@Override
 			public void onClick(View v) {
 				text.setText (convertNumberString (textField.getText ().toString ()));
-			}
-		});
-
-		chineseBtn.setOnClickListener (new View.OnClickListener () {
-			@Override
-			public void onClick(View v) {
-				startActivity (new Intent (MainActivity.this, MainActivityChinese.class));
+				textChinese.setText (new ChineseCheckConverter().convertNumberString (textField.getText ().toString ()));
 			}
 		});
 	}
@@ -86,13 +78,13 @@ public class MainActivity extends Activity {
 					groups[i] = integerPart.substring (i * 3);
 				}
 				groups[i] = new StringBuilder (groups[i]).reverse ().toString ();
-				groups[i] = get1To3DigitString (groups[i]) + " " + getTheWord (i) + " ";
+				groups[i] = Integer.parseInt (groups[i]) == 0 ? "" : get1To3DigitString (groups[i]) + " " + getTheWord (i) + " ";
 			}
 
 			reverseArray (groups);
 			StringBuilder builder = new StringBuilder ("");
-			for (int i = 0 ; i < groups.length ; i++) {
-				builder.append (groups[i]);
+			for (String group : groups) {
+				builder.append (group);
 			}
 			integerString = builder.toString ();
 		}
@@ -260,10 +252,10 @@ public class MainActivity extends Activity {
 
 		builder = new StringBuilder ("");
 
-		for (int i  = 0 ; i < words.length ; i++) {
-			if (words[i].equals (""))
+		for (String word : words) {
+			if (word.equals (""))
 				continue;
-			builder.append (words[i]);
+			builder.append (word);
 			builder.append (" ");
 		}
 
